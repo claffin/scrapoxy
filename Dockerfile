@@ -7,15 +7,15 @@
 FROM mhart/alpine-node:8
 EXPOSE 8888 8889
 
-
+WORKDIR /usr/src/app
+COPY package*.json ./
 # Install Scrapoxy
-RUN npm pack
-RUN npm i -g scrapoxy-3.1.1.tgz
+RUN npm install
 
 
 # Add configuration
 ADD tools/docker/config.js .
 
-
+COPY . .
 # Start scrapoxy
 CMD scrapoxy start config.js -d
