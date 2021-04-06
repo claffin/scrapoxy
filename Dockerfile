@@ -5,17 +5,18 @@
 #   -it -p 8888 -p 8889 fabienvauchelles/scrapoxy
 
 FROM mhart/alpine-node:8
+
+# Install git 
+RUN apk --no-cache add git
+
 EXPOSE 8888 8889
 
-WORKDIR /usr/src/app
-COPY package*.json ./
 # Install Scrapoxy
-RUN npm install
-
+RUN npm install -g git+https://github.com/claffin/scrapoxy.git
 
 # Add configuration
 ADD tools/docker/config.js .
 
-COPY . .
 # Start scrapoxy
+
 CMD scrapoxy start config.js -d
