@@ -6,11 +6,11 @@ steps:
 - name: docker  
   image: plugins/docker
   settings:
-    registry: rg.nl-ams.scw.cloud
+    registry: rg.nl-ams.scw.cloud/laffin
     username: nologin
     password:
       from_secret: docker_password
-    repo: rg.nl-ams.scw.cloud/laffin
+    repo: rg.nl-ams.scw.cloud/laffin/scrapoxy
     dockerfile: Dockerfile
 
 trigger:
