@@ -6,6 +6,7 @@ steps:
 - name: docker  
   image: plugins/docker
   settings:
+    registry: rg.nl-ams.scw.cloud
     username: nologin
     password:
       from_secret: docker_password
