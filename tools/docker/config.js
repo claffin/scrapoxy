@@ -12,6 +12,10 @@ if (emptyConfig(process.env.PROVIDERS_TYPE)) {
 module.exports = {
     proxy: {
         port: parseInt(process.env.PROXY_PORT || '8888'),
+         auth: {
+             username: process.env.USERNAME,
+             password: mprocess.env.PASSWORD
+      }
     },
 
     commander: {
